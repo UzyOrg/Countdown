@@ -1,109 +1,123 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  @font-face {
-    -webkit-font-family: "PP Open Sans";
-    font-family: "PP Open Sans";
-    -webkit-src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf17f449b004fbc5981/original.otf?1701719281")
-      format("opentype");
-    src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf17f449b004fbc5981/original.otf?1701719281")
-      format("opentype");
-    /* url('./assets/fonts/PPObjectSans-Heavy.otf') format('opentype'); */
-  }
-  @font-face {
-    -webkit-font-family: "PP Open Sans Heavy";
-    font-family: "PP Open Sans Heavy";
-    -webkit-src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf1473182004dd71b34/original.otf?1701719281")
-      format("opentype");
-    src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf1473182004dd71b34/original.otf?1701719281")
-      format("opentype");
-    /* url('./assets/fonts/PPObjectSans-Heavy.otf') format('opentype'); */
-  }
-  @font-face {
-    -webkit-font-family: "PP Open Sans Bold";
-    font-family: "PP Open Sans Bold";
-    -webkit-src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf1c6581c004ce67f97/original.ttf?1701719281")
-      format("opentype");
-    src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf1c6581c004ce67f97/original.ttf?1701719281")
-      format("opentype");
-    /* url('./assets/fonts/PPObjectSans-Heavy.otf') format('opentype'); */
-  }
-  body {
-    width: 100%;
-    min-height: 100vh;
-    font-family: "Lilita One";
-    display: flex;
-    place-items: center;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .card{
-    width: 330px;
-    height: 780px;
-    border-radius: 20px;
-    padding: 24px;
-    color: white;
-    font-family: 'PP Open Sans','sans-serif';
-    background: linear-gradient(135deg, rgba(255, 68, 31, 1), rgba(153, 153, 255, 1));
-  }
-  .lottie{
-    width: 240px;
-    height: 240px;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  -webkit-font-family: "PP Open Sans";
+  font-family: "PP Open Sans";
+  -webkit-src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf17f449b004fbc5981/original.otf?1701719281")
+    format("opentype");
+  src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf17f449b004fbc5981/original.otf?1701719281")
+    format("opentype");
+  /* url('./assets/fonts/PPObjectSans-Heavy.otf') format('opentype'); */
+}
+@font-face {
+  -webkit-font-family: "PP Open Sans Heavy";
+  font-family: "PP Open Sans Heavy";
+  -webkit-src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf1473182004dd71b34/original.otf?1701719281")
+    format("opentype");
+  src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf1473182004dd71b34/original.otf?1701719281")
+    format("opentype");
+  /* url('./assets/fonts/PPObjectSans-Heavy.otf') format('opentype'); */
+}
+@font-face {
+  -webkit-font-family: "PP Open Sans Bold";
+  font-family: "PP Open Sans Bold";
+  -webkit-src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf1c6581c004ce67f97/original.ttf?1701719281")
+    format("opentype");
+  src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf1c6581c004ce67f97/original.ttf?1701719281")
+    format("opentype");
+  /* url('./assets/fonts/PPObjectSans-Heavy.otf') format('opentype'); */
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Lilita One";
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.card {
+  width: 300px;
+  height: 410px;
+  border-radius: 20px;
+  padding: 24px;
+  color: white;
+  font-family: "PP Open Sans", "sans-serif";
+  background: rgb(246, 12, 72);
+  background: linear-gradient(
+    135deg,
+    rgba(246, 12, 72, 1) 27%,
+    rgba(255, 89, 119, 1) 100%
+  );
+}
+.lottie {
+  width: 240px;
+  height: 240px;
+}
+#contador {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: white;
+  font-family: "PP Open Sans Bold", sans-serif;
+  gap: 30px;
+}
+.contador {
+  display: flex;
+  gap: 10px;
+  font-size: 60px;
+  font-family: "PP Open Sans Heavy", sans-serif;
+}
+.counter-time {
+  border-radius: 10px;
+  padding: 8px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.counter-time p:first-of-type {
+  text-align: center;
+  min-width: 58.55px;
+}
+.temporalidad {
+  font-size: 30px;
+  text-align: center;
+}
+/* .texto {
+    margin-bottom: 70px;
+  } */
+@media screen and (max-width: 600px) {
   #contador {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-    color: white;
-    font-family: "PP Open Sans Bold", sans-serif;
-    gap: 30px;
+    font-size: 30px;
   }
   .contador {
-    display: flex;
-    font-size: 60px;
-    font-family: "PP Open Sans Heavy", sans-serif;
-  }
-  .counter-time p:first-of-type {
-    text-align: center;
-    margin-bottom: 50px;
-    min-width: 58.55px;
+    font-size: 40px;
   }
   .temporalidad {
-    font-size: 30px;
-    text-align: center;
+    font-size: 20px;
   }
-  .texto {
-    margin-bottom: 70px;
+}
+@media screen and (max-width: 514px) {
+  #contador {
+    font-size: 20px;
   }
-  @media screen and (max-width: 600px) {
-    #contador {
-      font-size: 30px;
-    }
-    .contador {
-      font-size: 40px;
-    }
-    .temporalidad {
-      font-size: 20px;
-    }
+  .contador {
+    font-size: 32px;
   }
-  @media screen and (max-width: 514px) {
-    #contador {
-      font-size: 20px;
-    }
-    .contador {
-      font-size: 32px;
-    }
-    .temporalidad {
-      font-size: 12px;
-    }
+  .temporalidad {
+    font-size: 12px;
   }
-  @media screen and (max-width: 411px) {
-    #contador {
-      font-size: 20px;
-    }
+}
+@media screen and (max-width: 411px) {
+  #contador {
+    font-size: 20px;
   }
+}
