@@ -9,97 +9,99 @@
   </head>
   <body>
     <div class="card">
+      <p>
+        ¡Se acaba el tiempo, activa la promo que te da
+        <span>hasta 100% cashback!</span>
+      </p>
       <div id="contador">La promoción aún no ha empezado</div>
-    <script>
-      const fecha1 = new Date("July 30, 2024 12:00:00 GMT-0600").toLocaleString(
-        "en-US",
-        {
-          timeZone: "America/Mexico_City",
-        }
-      );
-      primeraFechaLimite = new Date(fecha1);
-      console.log(primeraFechaLimite);
-
-      const fecha2 = new Date(
-        "August 4, 2024 21:00:00 GMT-0600"
-      ).toLocaleString("en-US", {
-        timeZone: "America/Mexico_City",
-      });
-      segundaFechaLimite = new Date(fecha2);
-      console.log(segundaFechaLimite);
-      
-      
-      function actualizarContador() {
-        const ahoraEnMexico = new Date().toLocaleString("en-US", {
+      <script>
+        const fecha1 = new Date(
+          "July 30, 2024 12:00:00 GMT-0600"
+        ).toLocaleString("en-US", {
           timeZone: "America/Mexico_City",
         });
-        horaGMT6 = new Date(ahoraEnMexico);
-        let texto = "";
-        let fechaLimite;
+        primeraFechaLimite = new Date(fecha1);
+        console.log(primeraFechaLimite);
 
-        if (horaGMT6 < primeraFechaLimite) {
-          // texto = "La promoción casi ha empezado";
-          fechaLimite = primeraFechaLimite;
-        } else if (horaGMT6 < segundaFechaLimite) {
-          // texto = "La promoción ha empezado";
-          fechaLimite = segundaFechaLimite;
-        } else {
-          // texto = "La promoción ha acabado";
-          // document.getElementById(
-          //   "contador"
-          // ).innerHTML = `<p class="texto">${texto}</p>`;
-          return;
+        const fecha2 = new Date(
+          "August 4, 2024 21:00:00 GMT-0600"
+        ).toLocaleString("en-US", {
+          timeZone: "America/Mexico_City",
+        });
+        segundaFechaLimite = new Date(fecha2);
+        console.log(segundaFechaLimite);
+
+        function actualizarContador() {
+          const ahoraEnMexico = new Date().toLocaleString("en-US", {
+            timeZone: "America/Mexico_City",
+          });
+          horaGMT6 = new Date(ahoraEnMexico);
+          let texto = "";
+          let fechaLimite;
+
+          if (horaGMT6 < primeraFechaLimite) {
+            // texto = "La promoción casi ha empezado";
+            fechaLimite = primeraFechaLimite;
+          } else if (horaGMT6 < segundaFechaLimite) {
+            // texto = "La promoción ha empezado";
+            fechaLimite = segundaFechaLimite;
+          } else {
+            // texto = "La promoción ha acabado";
+            // document.getElementById(
+            //   "contador"
+            // ).innerHTML = `<p class="texto">${texto}</p>`;
+            return;
+          }
+
+          const tiempoRestante = obtenerTiempoRestante(horaGMT6, fechaLimite);
+          document.getElementById(
+            "contador"
+          ).innerHTML = `<div class="contador">${formatoTiempo(
+            tiempoRestante
+          )}</div>`;
+
+          if (horaGMT6 >= fechaLimite) {
+            clearInterval(intervalo);
+          }
         }
 
-        const tiempoRestante = obtenerTiempoRestante(horaGMT6, fechaLimite);
-        document.getElementById(
-          "contador"
-        ).innerHTML = `<p class="texto">${texto}</p><div class="contador">${formatoTiempo(
-          tiempoRestante
-        )}</div>`;
-
-        if (horaGMT6 >= fechaLimite) {
-          clearInterval(intervalo);
+        function obtenerTiempoRestante(horaGMT6, fechaLimite) {
+          const diferencia = fechaLimite - new Date(horaGMT6);
+          return {
+            // dias: Math.floor(diferencia / (1000 * 60 * 60 * 24)),
+            horas: Math.floor(
+              (diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+            ),
+            minutos: Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60)),
+            segundos: Math.floor((diferencia % (1000 * 60)) / 1000),
+          };
         }
-      }
 
-      function obtenerTiempoRestante(horaGMT6, fechaLimite) {
-        const diferencia = fechaLimite - new Date(horaGMT6);
-        return {
-          // dias: Math.floor(diferencia / (1000 * 60 * 60 * 24)),
-          horas: Math.floor(
-            (diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-          ),
-          minutos: Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60)),
-          segundos: Math.floor((diferencia % (1000 * 60)) / 1000),
-        };
-      }
+        function formatoTiempo(tiempo) {
+          return `<div class="counter-time"><p>${tiempo.horas
+            .toString()
+            .padStart(
+              2,
+              "0"
+            )}</p><p class="temporalidad"> horas</p> </div><div class="counter-time"><p>${tiempo.minutos
+            .toString()
+            .padStart(
+              2,
+              "0"
+            )}</p><p class="temporalidad"> minutos</p></div><div class="counter-time"><p>${tiempo.segundos
+            .toString()
+            .padStart(2, "0")}</p><p class="temporalidad"> segundos</p></div>`;
+        }
 
-      function formatoTiempo(tiempo) {
-        return `<div class="counter-time"><p>${tiempo.horas
-          .toString()
-          .padStart(
-            2,
-            "0"
-          )}</p><p class="temporalidad"> horas</p> </div> : <div class="counter-time"><p>${tiempo.minutos
-          .toString()
-          .padStart(
-            2,
-            "0"
-          )}</p><p class="temporalidad"> minutos</p></div> : <div class="counter-time"><p>${tiempo.segundos
-          .toString()
-          .padStart(2, "0")}</p><p class="temporalidad"> segundos</p></div>`;
-      }
+        // Actualizar el contador cada segundo
+        // const intervalo = setInterval(actualizarContador, 1000);
 
-      // Actualizar el contador cada segundo
-      const intervalo = setInterval(actualizarContador, 1000);
-
-      // Actualizar el contador al cargar la página
-      actualizarContador();
-    </script>
+        // Actualizar el contador al cargar la página
+        actualizarContador();
+      </script>
       <lottie-player
         class="lottie"
-        src="./time.json"
+        src="https://lottie.host/ff0e7b09-c18c-42a7-bd00-0b3592acaae8/4l065CLCdF.json"
         background="transparent"
         speed="1"
         direction="2"

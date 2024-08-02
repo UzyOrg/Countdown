@@ -38,24 +38,72 @@ body {
   place-items: center;
   flex-direction: column;
   justify-content: center;
+  background-color: rgb(28, 28, 28);
 }
 .card {
+  position: relative;
+  width: 310px;
+  height: 420px;
+  border-radius: 20px;
+  box-shadow: 0 6px 10px 0 rgba(33,34,36,0.08);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+.card::before {
+  content: "";
+  background-image: conic-gradient(#fff 10deg, transparent 90deg);
+  width: 160%;
+  height: 160%;
+  position: absolute;
+  z-index: -2;
+  left: -30%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto auto;
+  border-radius: 20px;
+  animation: rotate 2s linear infinite;
+}
+.card::after {
+  content: "";
+  text-align: center;
   width: 300px;
   height: 410px;
   border-radius: 20px;
-  padding: 24px;
-  color: white;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto auto;
+  color: rgb(37, 37, 37);
   font-family: "PP Open Sans", "sans-serif";
-  background: rgb(246, 12, 72);
+  z-index: -1;
   background: linear-gradient(
     135deg,
     rgba(246, 12, 72, 1) 27%,
     rgba(255, 89, 119, 1) 100%
   );
+  color: white;
+  position: absolute;
+}
+.card:first-child {
+  font-family: "PP Open Sans Bold";
+  font-size: 10px;
+}
+.card span {
+  font-family: "PP Open Sans Bold";
+  font-size: 20px;
 }
 .lottie {
-  width: 240px;
-  height: 240px;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
 }
 #contador {
   display: flex;
@@ -120,4 +168,8 @@ body {
   #contador {
     font-size: 20px;
   }
+}
+@keyframes rotate {
+  0%{ transform: rotate(0deg)}
+  100%{transform: rotate(-360deg)}
 }
