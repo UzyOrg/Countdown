@@ -40,14 +40,48 @@ body {
   justify-content: center;
   background-color: rgb(28, 28, 28);
 }
+.close-button{
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  opacity: 0.2;
+  animation: appear 2s ease forwards;
+  animation-delay: 2s;
+  pointer-events: none; /* Desactiva los eventos de clic */
+  z-index: 100;
+}
+.card-wrapper{
+  position: relative;
+}
+.pulse{
+  width: 300px;
+  height: 410px;
+  border-radius: 20px;
+  position: absolute;
+  z-index: -3;
+}
+.pulse div{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   opacity: 0.2;
+   background: #fff;
+   border-radius: 20px;
+   animation: pulse 1s ease-out infinite;
+   animation-delay: calc(1s * var(--i));
+}
 .card {
   position: relative;
-  width: 310px;
-  height: 420px;
+  width: 306px;
+  height: 416px;
   border-radius: 20px;
   box-shadow: 0 6px 10px 0 rgba(33,34,36,0.08);
   padding: 24px;
+  padding-top: 48px;
   display: flex;
+  gap: 12px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -92,18 +126,19 @@ body {
   color: white;
   position: absolute;
 }
-.card:first-child {
+.card > p:first-child {
   font-family: "PP Open Sans Bold";
   font-size: 10px;
 }
 .card span {
   font-family: "PP Open Sans Bold";
-  font-size: 20px;
+  font-size: 22px;
 }
 .lottie {
-  width: 140px;
-  height: 140px;
-  margin: 0 auto;
+  width: 180px;
+  height: auto;
+  margin-inline: auto;
+  opacity: 1;
 }
 #contador {
   display: flex;
@@ -150,7 +185,7 @@ body {
     font-size: 40px;
   }
   .temporalidad {
-    font-size: 20px;
+    font-size: 12px;
   }
 }
 @media screen and (max-width: 514px) {
@@ -158,7 +193,7 @@ body {
     font-size: 20px;
   }
   .contador {
-    font-size: 32px;
+    font-size: 42px;
   }
   .temporalidad {
     font-size: 12px;
@@ -166,10 +201,22 @@ body {
 }
 @media screen and (max-width: 411px) {
   #contador {
-    font-size: 20px;
+    font-size: 30px;
   }
 }
 @keyframes rotate {
   0%{ transform: rotate(0deg)}
   100%{transform: rotate(-360deg)}
+}
+@keyframes pulse {
+  100%{
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+@keyframes appear {
+  100%{
+    opacity: 1;
+    pointer-events: auto; /* Desactiva los eventos de clic */
+  }
 }

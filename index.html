@@ -8,6 +8,16 @@
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </head>
   <body>
+    <div class="pulse">
+      <div style="--i:0;"></div>
+      <div style="--i:1;"></div>
+      <div style="--i:2;"></div>
+      <div style="--i:3;"></div>
+    </div>
+    <div class="card-wrapper">
+      <img class="close-button" src="./close-button.svg" onclick="hola()" alt="">
+
+    
     <div class="card">
       <p>
         ¡Se acaba el tiempo, activa la promo que te da
@@ -15,8 +25,11 @@
       </p>
       <div id="contador">La promoción aún no ha empezado</div>
       <script>
+        document.querySelector(".close-button").addEventListener("click",()=>{
+          console.log("hola")
+        })
         const fecha1 = new Date(
-          "July 30, 2024 12:00:00 GMT-0600"
+          "August 6, 2024 12:00:00 GMT-0600"
         ).toLocaleString("en-US", {
           timeZone: "America/Mexico_City",
         });
@@ -24,7 +37,7 @@
         console.log(primeraFechaLimite);
 
         const fecha2 = new Date(
-          "August 4, 2024 21:00:00 GMT-0600"
+          "August 7, 2024 21:00:00 GMT-0600"
         ).toLocaleString("en-US", {
           timeZone: "America/Mexico_City",
         });
@@ -94,14 +107,14 @@
         }
 
         // Actualizar el contador cada segundo
-        // const intervalo = setInterval(actualizarContador, 1000);
+        const intervalo = setInterval(actualizarContador, 1000);
 
         // Actualizar el contador al cargar la página
         actualizarContador();
       </script>
       <lottie-player
         class="lottie"
-        src="https://lottie.host/ff0e7b09-c18c-42a7-bd00-0b3592acaae8/4l065CLCdF.json"
+        src="https://lottie.host/4bcee8bc-df68-469e-bf44-311921597163/F2JYJHaDoa.json"
         background="transparent"
         speed="1"
         direction="2"
@@ -110,5 +123,6 @@
         loop
       ></lottie-player>
     </div>
+  </div>
   </body>
 </html>
